@@ -3,7 +3,7 @@
 // "Basantnagar" and its municipal departments are invented for this prototype
 // and do not represent a real integration with any government system.
 
-export const CITY_NAME = 'Basantnagar'
+export const CITY_NAME = 'India'
 
 export const LANGUAGES = [
   { code: 'en', label: 'English', native: 'English' },

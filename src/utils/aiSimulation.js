@@ -7,6 +7,7 @@ const KEYWORDS = {
   lighting: ['light', 'lamp', 'dark', 'bulb', 'street light'],
   drainage: ['drain', 'sewage', 'flood', 'stagnant', 'mosquito', 'waterlog'],
   electricity: ['transformer', 'wire', 'spark', 'shock', 'electric', 'power cut'],
+  
 }
 
 const HIGH_PRIORITY_SIGNALS = ['spark', 'shock', 'danger', 'urgent', 'children', 'school', 'accident', 'flood', 'health']
