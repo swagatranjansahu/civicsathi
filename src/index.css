@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper-100 text-ink font-sans antialiased;
+  }
+  .dark body {
+    @apply bg-civic-950 text-paper-100;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  ::selection {
+    @apply bg-marigold-300 text-civic-900;
+  }
+  :focus-visible {
+    outline: 2px solid #DD8623;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Signature element: an ink-stamp badge used for status & verification states
+     across the product — tracking timelines, evidence photos, complaint cards. */
+  .stamp {
+    @apply inline-flex items-center gap-1.5 rounded-[3px] border-[1.5px] px-2.5 py-1
+           font-mono text-[11px] font-semibold uppercase tracking-[0.08em];
+    transform: rotate(-1deg);
+  }
+  .stamp-dot {
+    @apply h-1.5 w-1.5 rounded-full;
+  }
+
+  .surface {
+    @apply rounded-card border border-paper-200 bg-white shadow-card dark:border-civic-700 dark:bg-civic-800;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-[6px] px-4 py-2.5 text-sm font-semibold
+           transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-civic-700 text-white hover:bg-civic-600 active:bg-civic-800;
+  }
+  .btn-accent {
+    @apply btn bg-marigold-500 text-white hover:bg-marigold-600 active:bg-marigold-700;
+  }
+  .btn-outline {
+    @apply btn border border-civic-300 bg-transparent text-civic-700 hover:bg-civic-50
+           dark:border-civic-500 dark:text-paper-100 dark:hover:bg-civic-700;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-civic-600 hover:bg-civic-50 dark:text-paper-200 dark:hover:bg-civic-700;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-sm font-medium text-civic-800 dark:text-paper-200;
+  }
+  .field-input {
+    @apply w-full rounded-[6px] border border-paper-300 bg-white px-3.5 py-2.5 text-sm text-ink
+           placeholder:text-paper-500 focus:border-civic-500 focus:outline-none focus:ring-2 focus:ring-civic-200
+           dark:border-civic-600 dark:bg-civic-800 dark:text-paper-100 dark:focus:ring-civic-600;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs font-semibold uppercase tracking-[0.14em] text-civic-500 dark:text-civic-300;
+  }
+}
