@@ -15,7 +15,7 @@ import {
 } from 'lucide-react'
 import ComplaintCard from '../components/ComplaintCard'
 import Stamp from '../components/Stamp'
-import { COMPLAINTS, TRANSPARENCY_STATS, CITY_NAME } from '../data/mockData'
+import { COMPLAINTS,TRANSPARENCY_STATS,DEPARTMENTS,CATEGORIES,LANGUAGES, CITY_NAME } from '../data/mockData'
 
 const WORKFLOW = [
   { step: 'Report', icon: FileText, text: 'Citizens submit issues via text, voice or image, with location and evidence.' },
@@ -67,6 +67,10 @@ const QUICK_ACTIONS = [
 ]
 
 export default function Landing() {
+  const featured = COMPLAINTS[0]
+  const featuredDepartment = DEPARTMENTS.find(
+  (d) => d.id === featured.department
+)
   const recent = COMPLAINTS.slice(0, 3)
 
   return (
@@ -105,47 +109,87 @@ export default function Landing() {
                   Track a Complaint
                 </Link>
               </div>
-              <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs text-paper-500 dark:text-paper-400">
-                <span><strong className="text-ink dark:text-paper-100">{TRANSPARENCY_STATS.totalComplaints.toLocaleString('en-IN')}</strong> complaints reported</span>
-                <span><strong className="text-ink dark:text-paper-100">{TRANSPARENCY_STATS.resolved.toLocaleString('en-IN')}</strong> resolved</span>
-                <span><strong className="text-ink dark:text-paper-100">{TRANSPARENCY_STATS.avgResponseDays}d</strong> avg. response</span>
-              </div>
+              <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4 font-mono text-xs">
+  <div>
+    <p className="text-3xl font-bold text-civic-700">
+      {TRANSPARENCY_STATS.totalComplaints}
+    </p>
+    <p className="text-paper-500">Complaints</p>
+  </div>
+
+  <div>
+    <p className="text-3xl font-bold text-civic-700">
+      {DEPARTMENTS.length}
+    </p>
+    <p className="text-paper-500">Departments</p>
+  </div>
+
+  <div>
+    <p className="text-3xl font-bold text-civic-700">
+      {CATEGORIES.length}
+    </p>
+    <p className="text-paper-500">Categories</p>
+  </div>
+
+  <div>
+    <p className="text-3xl font-bold text-civic-700">
+      {LANGUAGES.length}
+    </p>
+    <p className="text-paper-500">Languages</p>
+  </div>
+</div>
             </div>
 
             <div className="animate-rise-in [animation-delay:150ms]">
               <div className="surface mx-auto max-w-sm p-5">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-paper-500">CIV-2041 · Analysis</span>
+                 <span className="font-mono text-xs text-paper-500">{featured.id} · AI Analysis</span>
                   <Stamp label="AI Verified" tone="progress" />
                 </div>
-                <p className="mt-3 text-sm text-ink dark:text-paper-100">
-                  "Large pothole near the main road junction, close to the pedestrian crossing."
-                </p>
+                <h3 className="mt-3 text-lg font-semibold text-ink dark:text-paper-50">
+  {featured.title}
+</h3>
+
+<p className="mt-2 text-sm text-ink dark:text-paper-100">
+  {featured.description}
+</p>
+<p className="mt-2 text-xs text-paper-500">
+  📍 {featured.location.area}
+</p>
                 <dl className="mt-4 grid grid-cols-2 gap-3 border-t border-paper-200 pt-4 text-xs dark:border-civic-700">
                   <div>
-                    <dt className="text-paper-500">Category</dt>
-                    <dd className="mt-0.5 font-medium text-ink dark:text-paper-100">Road Infrastructure</dd>
-                  </div>
+  <dt className="text-paper-500">Category</dt>
+  <dd className="mt-0.5 font-medium text-ink dark:text-paper-100">
+    {CATEGORIES.find(c => c.id === featured.category)?.label}
+  </dd>
+</div>
                   <div>
                     <dt className="text-paper-500">Priority</dt>
-                    <dd className="mt-0.5 font-medium text-brick-500">High</dd>
+                   <dd className="mt-0.5 font-medium text-brick-500"> 
+                    {featured.priority}
+                    </dd>
                   </div>
                   <div>
-                    <dt className="text-paper-500">Department</dt>
-                    <dd className="mt-0.5 font-medium text-ink dark:text-paper-100">Public Works</dd>
-                  </div>
+  <dt className="text-paper-500">Department</dt>
+  <dd className="mt-0.5 font-medium text-ink dark:text-paper-100">
+    {featuredDepartment?.name}
+  </dd>
+</div>
                   <div>
                     <dt className="text-paper-500">Similar reports</dt>
-                    <dd className="mt-0.5 font-medium text-ink dark:text-paper-100">3 grouped as CIV-204</dd>
+                    <dd className="mt-0.5 font-medium text-ink dark:text-paper-100"> {featured.supportCount} citizens supported</dd>
                   </div>
                 </dl>
                 <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-paper-200 dark:bg-civic-700">
-                  <div className="h-full w-[94%] rounded-full bg-marigold-500" />
-                </div>
-                <p className="mt-1.5 font-mono text-[11px] text-paper-500">94% confidence</p>
+                  <div
+  className="h-full rounded-full bg-marigold-500"
+  style={{ width: `${featured.aiConfidence}%` }}
+/>
+               <p className="mt-1.5 font-mono text-[11px] text-paper-500"> {featured.aiConfidence}% AI Confidence</p>
               </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
 

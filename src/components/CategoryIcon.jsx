@@ -1,5 +1,23 @@
 import React from 'react'
-import { Construction, Droplets, Trash2, Lightbulb, Waves, Zap, HelpCircle } from 'lucide-react'
+import {
+  Construction,
+  Droplets,
+  Trash2,
+  Lightbulb,
+  Waves,
+  Zap,
+  Shield,
+  HeartPulse,
+  PawPrint,
+  Trees,
+  Bus,
+  School,
+  Wheat,
+  Flame,
+  Landmark,
+  BadgeAlert,
+  HelpCircle,
+}from 'lucide-react'
 import { CATEGORIES } from '../data/mockData'
 
 const ICONS = {
@@ -9,6 +27,16 @@ const ICONS = {
   Lightbulb,
   Waves,
   Zap,
+  Shield,
+  HeartPulse,
+  PawPrint,
+  Trees,
+  Bus,
+  School,
+  Wheat,
+  Flame,
+  Landmark,
+  ShieldAlert,
 }
 
 const COLOR_CLASSES = {

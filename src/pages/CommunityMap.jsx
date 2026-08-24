@@ -2,26 +2,25 @@ import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Users, MapPin, X, ArrowRight } from 'lucide-react'
 import PageHeader from '../components/PageHeader'
-import CategoryIcon, { getCategory } from '../components/CategoryIcon'
+import CategoryIcon from '../components/CategoryIcon'
 import Stamp, { statusTone, priorityTone } from '../components/Stamp'
 import { CATEGORIES } from '../data/mockData'
 import { useApp } from '../context/AppContext'
-
-const BOUNDS = { latMin: 20.262, latMax: 20.306, lngMin: 85.788, lngMax: 85.846 }
-
-function project(lat, lng) {
-  const x = ((lng - BOUNDS.lngMin) / (BOUNDS.lngMax - BOUNDS.lngMin)) * 100
-  const y = (1 - (lat - BOUNDS.latMin) / (BOUNDS.latMax - BOUNDS.latMin)) * 100
-  return { x: Math.min(96, Math.max(4, x)), y: Math.min(94, Math.max(8, y)) }
-}
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { CircleMarker } from "react-leaflet";
 
 const DOT_COLORS = {
-  brick: '#B94A3B',
-  civic: '#1F4A4E',
-  forest: '#2E7D4F',
-  marigold: '#DD8623',
-  gold: '#BC9226',
-}
+  brick: "#B94A3B",
+  civic: "#1F4A4E",
+  forest: "#2E7D4F",
+  marigold: "#d17c1b",
+  gold: "#BC9226",
+};
+
+
+
+
+
 
 export default function CommunityMap() {
   const { complaints } = useApp()
@@ -66,45 +65,71 @@ export default function CommunityMap() {
         </div>
 
         <div className="grid gap-4 lg:grid-cols-3">
-          <div className="surface relative aspect-[4/3] overflow-hidden lg:col-span-2 lg:aspect-auto lg:min-h-[520px]">
-            <div
-              className="absolute inset-0 bg-paper-100 dark:bg-civic-800"
-              style={{
-                backgroundImage:
-                  'linear-gradient(rgba(31,74,78,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(31,74,78,0.08) 1px, transparent 1px)',
-                backgroundSize: '32px 32px',
-              }}
-            />
-            <div className="absolute left-3 top-3 rounded-[6px] bg-white/90 px-2.5 py-1 font-mono text-[10px] text-paper-500 dark:bg-civic-900/90">
-              Basantnagar — stylized map (no live map data)
-            </div>
+          
+          
+          
+          <MapContainer
+            className="lg:col-span-2"
+            center={[20.5937, 78.9629]}
+            zoom={5}
+            style={{
+               height: "520px",
+                width: "100%",
+               borderRadius: "12px",
+            }}
+            className="lg:col-span-2"
+          >
+ <TileLayer
+  url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+  attribution="&copy; OpenStreetMap &copy; CARTO"
+/>
+  {visible.map((c) => (
+    <CircleMarker
+  key={c.id}
+  center={[c.location.lat, c.location.lng]}
+  radius={8}
+  pathOptions={{
+    color:
+      c.category === "road"
+        ? "red"
+        : c.category === "water"
+        ? "blue"
+        : c.category === "sanitation"
+        ? "green"
+        : c.category === "lighting"
+        ? "orange"
+        : c.category === "drainage"
+        ? "purple"
+        : "black",
+    fillColor:
+      c.category === "road"
+        ? "red"
+        : c.category === "water"
+        ? "blue"
+        : c.category === "sanitation"
+        ? "green"
+        : c.category === "lighting"
+        ? "orange"
+        : c.category === "drainage"
+        ? "purple"
+        : "black",
+    fillOpacity: 0.9,
+  }}
+  eventHandlers={{
+    click: () => setSelected(c),
+  }}
+>
+  <Popup>
+    <b>{c.title}</b>
+    <br />
+    {c.location.area}
+  </Popup>
+</CircleMarker>
+  ))}
+</MapContainer>
 
-            {visible.map((c) => {
-              const { x, y } = project(c.location.lat, c.location.lng)
-              const cat = getCategory(c.category)
-              const isSelected = selected?.id === c.id
-              return (
-                <button
-                  key={c.id}
-                  onClick={() => setSelected(c)}
-                  style={{ left: `${x}%`, top: `${y}%` }}
-                  className={`absolute -translate-x-1/2 -translate-y-full transition-transform hover:scale-110 ${
-                    isSelected ? 'z-20 scale-125' : 'z-10'
-                  }`}
-                  aria-label={c.title}
-                >
-                  <span
-                    className="block h-4 w-4 rounded-full border-2 border-white shadow-lift"
-                    style={{ background: DOT_COLORS[cat.color] }}
-                  />
-                  <span
-                    className="mx-auto block h-2 w-0.5"
-                    style={{ background: DOT_COLORS[cat.color] }}
-                  />
-                </button>
-              )
-            })}
-          </div>
+            
+          
 
           <div>
             {selected ? (
