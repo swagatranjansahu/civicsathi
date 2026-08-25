@@ -118,14 +118,14 @@ export const DEPARTMENTS = [
   },
   {
     id: "water",
-    name: "Odisha Water Corporation",
+    name: "Central Water Commission (CWC)",
     handles: ["water"],
     activeCases: 742,
     avgResponseDays: 3,
   },
   {
     id: "sanitation",
-    name: "Bhubaneswar Municipal Corporation (BMC)",
+    name: "Municipal Corporation sanitation department",
     handles: ["sanitation"],
     activeCases: 985,
     avgResponseDays: 2,
@@ -146,14 +146,14 @@ export const DEPARTMENTS = [
   },
   {
     id: "municipal",
-    name: "Cuttack Municipal Corporation (CMC)",
+    name: "Municipal Corporation.",
     handles: ["road", "sanitation", "drainage"],
     activeCases: 611,
     avgResponseDays: 4,
   },
   {
   id: "police",
-  name: "Odisha Police",
+  name: " State Police",
   handles: ["police"],
   activeCases: 562,
   avgResponseDays: 1,
@@ -209,7 +209,7 @@ export const DEPARTMENTS = [
 
 {
   id: "fire",
-  name: "Odisha Fire & Emergency Services",
+  name: "All IndiaFire & Emergency Services",
   handles: ["fire"],
   activeCases: 57,
   avgResponseDays: 1,
@@ -229,27 +229,7 @@ export const DEPARTMENTS = [
   handles: ["excise"],
   activeCases: 92,
   avgResponseDays: 3,
-},
-{
-  department: "Odisha Police",
-  avgDays: 1.2,
-  resolvedRate: 96,
-},
-{
-  department: "Health & Family Welfare Department",
-  avgDays: 2.1,
-  resolvedRate: 94,
-},
-{
-  department: "Animal Resources Development Department",
-  avgDays: 2.8,
-  resolvedRate: 90,
-},
-{
-  department: "Odisha Fire & Emergency Services",
-  avgDays: 0.8,
-  resolvedRate: 99,
-},
+}
 ]
 
 export const STATUS_STEPS = [
@@ -261,7 +241,7 @@ export const STATUS_STEPS = [
   'Resolved',
 ]
 
-const img = (seed, w = 640, h = 420) => `https://picsum.photos/seed/${seed}/${w}/${h}`
+
 
 export const COMPLAINTS = [
   {
@@ -306,7 +286,7 @@ export const COMPLAINTS = [
     {
       step: "Department Assigned",
       date: "2026-08-03",
-      note: "Forwarded to Bhubaneswar Municipal Corporation.",
+      note: "Forwarded to Municipal Corporation.",
     },
     {
       step: "Work in Progress",

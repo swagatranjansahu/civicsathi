@@ -34,7 +34,7 @@ export default function Transparency() {
     <div>
       <PageHeader
         eyebrow="Public transparency"
-        title="How Basantnagar is responding"
+        title="How India is responding"
         description="City-wide numbers on how complaints are reported, resolved and handled by department — updated as cases move through the system."
       />
 

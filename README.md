@@ -2,7 +2,7 @@
 
 An AI-assisted civic grievance triage and participatory budgeting platform — a working frontend prototype built for **Smart India Hackathon 2026**, Problem Statement **SOAIDEATHON-S36** ("Evidence-Grounded Civic Grievance Triage and Participatory Budgeting Platform").
 
-> This is a hackathon prototype. All complaint data, the city of "Basantnagar," its departments, and the AI pipeline are simulated with realistic mock data and local React state — there is no live backend, and no real government integration. See **How It Works** in the app for the intended production architecture.
+> This is a hackathon prototype. All complaint data of India," its departments, and the AI pipeline are simulated with realistic mock data and local React state — there is no live backend, and no real government integration. See **How It Works** in the app for the intended production architecture.
 
 ## What it does
 

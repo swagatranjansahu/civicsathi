@@ -77,7 +77,7 @@ export default function CommunityMap() {
                 width: "100%",
                borderRadius: "12px",
             }}
-            className="lg:col-span-2"
+            
           >
  <TileLayer
   url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"

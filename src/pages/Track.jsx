@@ -51,7 +51,7 @@ export default function Track() {
       <PageHeader
         eyebrow="Track a complaint"
         title="Search and follow any reported issue"
-        description="Look up a complaint by ID, keyword or location — or browse everything reported across Basantnagar."
+        description="Look up a complaint by ID, keyword or location — or browse everything reported across India."
       />
 
       <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">

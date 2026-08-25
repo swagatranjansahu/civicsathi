@@ -155,7 +155,7 @@ export default function Dashboard() {
 
             <div className="surface flex items-start gap-2.5 p-5 text-sm text-paper-600 dark:text-paper-300">
               <MapPin size={16} className="mt-0.5 shrink-0 text-civic-500" />
-              Showing activity for Basantnagar. Ward-level personalization isn't wired up in this prototype.
+              Showing activity for India. Ward-level personalization isn't wired up in this prototype.
             </div>
           </div>
         </div>
