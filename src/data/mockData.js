@@ -268,8 +268,8 @@ export const COMPLAINTS = [
   similarComplaints: [],
   aiConfidence: 95,
   evidence: {
-    before: img("iskcon-before"),
-    progress: img("iskcon-progress"),
+    before: ("iskcon-before"),
+    progress: ("iskcon-progress"),
     resolution: null,
   },
   timeline: [
@@ -319,7 +319,7 @@ export const COMPLAINTS = [
   similarComplaints: [],
   aiConfidence: 92,
   evidence: {
-    before: img("rasulgarh-road"),
+    before: ("rasulgarh-road"),
     progress: null,
     resolution: null,
   },
@@ -354,7 +354,7 @@ export const COMPLAINTS = [
   similarComplaints: [],
   aiConfidence: 94,
   evidence: {
-    before: img("cuttack-drain"),
+    before: ("cuttack-drain"),
     progress: null,
     resolution: null,
   },
@@ -389,7 +389,7 @@ export const COMPLAINTS = [
   similarComplaints: [],
   aiConfidence: 88,
   evidence: {
-    before: img("koraput-road"),
+    before: ("koraput-road"),
     progress: null,
     resolution: null,
   },
@@ -425,7 +425,7 @@ export const COMPLAINTS = [
   similarComplaints: [],
   aiConfidence: 93,
   evidence: {
-    before: img("bhawanipatna-water"),
+    before: ("bhawanipatna-water"),
     progress: null,
     resolution: null,
   },
