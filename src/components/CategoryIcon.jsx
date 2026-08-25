@@ -15,7 +15,7 @@ import {
   Wheat,
   Flame,
   Landmark,
-  BadgeAlert,
+  ShieldAlert,
   HelpCircle,
 }from 'lucide-react'
 import { CATEGORIES } from '../data/mockData'
