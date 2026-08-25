@@ -6,6 +6,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-paper-200 bg-white dark:border-civic-700 dark:bg-civic-900">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+
         <div className="grid gap-10 md:grid-cols-4">
 
           {/* Left Section */}
@@ -23,8 +24,10 @@ export default function Footer() {
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-paper-600 dark:text-paper-300">
               Built for Smart India Hackathon 2026 — Problem Statement
               SOAIDEATHON-S36, "Evidence-Grounded Civic Grievance Triage and
-              Participatory Budgeting Platform." This is a demo prototype;
-              complaints submitted here are not routed to any government department.
+              Participatory Budgeting Platform." This is a demonstration
+              prototype. Complaints submitted through this website are for
+              showcase purposes only and are not routed to any government
+              department.
             </p>
           </div>
 
@@ -38,7 +41,7 @@ export default function Footer() {
                   to="/report"
                   className="hover:text-civic-700 dark:hover:text-paper-50"
                 >
-                  Report an issue
+                  Report an Issue
                 </Link>
               </li>
 
@@ -47,7 +50,7 @@ export default function Footer() {
                   to="/track"
                   className="hover:text-civic-700 dark:hover:text-paper-50"
                 >
-                  Track a complaint
+                  Track a Complaint
                 </Link>
               </li>
 
@@ -56,7 +59,7 @@ export default function Footer() {
                   to="/participate"
                   className="hover:text-civic-700 dark:hover:text-paper-50"
                 >
-                  Vote on projects
+                  Participate
                 </Link>
               </li>
 
@@ -65,7 +68,7 @@ export default function Footer() {
                   to="/how-it-works"
                   className="hover:text-civic-700 dark:hover:text-paper-50"
                 >
-                  How it works
+                  How It Works
                 </Link>
               </li>
             </ul>
@@ -73,50 +76,61 @@ export default function Footer() {
 
           {/* Project Links */}
           <div>
-            <h3 className="eyebrow">Project Links (Prototype)</h3>
+            <h3 className="eyebrow">Project Links</h3>
 
-            <ul className="mt-3 space-y-3 text-sm text-paper-600 dark:text-paper-300">
+            <ul className="mt-3 space-y-2 text-sm text-paper-600 dark:text-paper-300">
 
-              <li className="text-xs uppercase tracking-wider text-paper-500 dark:text-paper-400">
-                Designed &amp; Developed by
-              </li>
-
-              <li>
-                <a
-                  href="https://github.com/swagatranjansahu"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-civic-700 dark:hover:text-paper-100"
-                >
-                  <Github size={14} />
-                  Swagat Ranjan Sahu
-                </a>
+              <li className="flex items-center gap-2">
+                <Github size={14} />
+                GitHub Repository — Placeholder
               </li>
 
               <li className="flex items-center gap-2">
                 <PlayCircle size={14} />
-                Demo video — placeholder
+                Demo Video — Placeholder
               </li>
 
               <li className="flex items-center gap-2">
                 <Globe2 size={14} />
-                Project website — placeholder
+                Project Website — Placeholder
               </li>
 
             </ul>
+
+            {/* Developer Credit */}
+            <div className="mt-6 border-t border-paper-200 pt-4 dark:border-civic-700">
+
+              <p className="text-xs uppercase tracking-widest text-paper-500 dark:text-paper-400">
+                Designed & Developed By
+              </p>
+
+              <a
+                href="https://github.com/swagatranjansahu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex items-center gap-2 font-medium text-civic-800 transition-colors hover:text-civic-700 dark:text-paper-100"
+              >
+                <Github size={16} />
+                Swagat Ranjan Sahu
+              </a>
+
+            </div>
+
           </div>
 
         </div>
 
         {/* Bottom Footer */}
         <div className="mt-10 flex flex-col gap-2 border-t border-paper-200 pt-6 text-xs text-paper-500 dark:border-civic-700 sm:flex-row sm:items-center sm:justify-between">
+
           <span>
-            © 2026 CivicSathi. 
+            © 2026 CivicSathi. Smart India Hackathon Prototype.
           </span>
 
           <span>
             Report → Understand → Group → Route → Track → Participate
           </span>
+
         </div>
 
       </div>
